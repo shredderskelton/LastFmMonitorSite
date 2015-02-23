@@ -33,7 +33,7 @@ function requestNowPlayingFromLastFm() {
 		}
 	};
 
-	if (process.env.NODE_ENV == 'production') {
+	if (process.env.NODE_ENV === 'production') {
 
 	} else {
 		options.host = "wp.sixt.de";

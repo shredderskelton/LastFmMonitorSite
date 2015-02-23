@@ -26,11 +26,14 @@ app.get('/index.html', function(req, res) {
 });
 
 function requestNowPlayingFromLastFm() {
+	var pathUri = '/2.0/?method=user.getrecenttracks&user=' + userNameToFollow + '&api_key=' + api_key + '&limit=1&format=json';
+	//console.log(pathUri);
 	var options = {
-		path: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + userNameToFollow + '&api_key=' + api_key + '&limit=1&format=json',
-		// headers: {
-		// 	Host: "ws.audioscrobbler.com"
-		// }
+		path: pathUri,
+		host: 'ws.audioscrobbler.com'
+			// headers: {
+			// 	Host: "ws.audioscrobbler.com"
+			// }
 	};
 
 	// options.host = "wp.sixt.de";
@@ -49,7 +52,13 @@ function requestNowPlayingFromLastFm() {
 		});
 	};
 
-	http.request(options, callback).end();
+	var req = http.request(options, callback);
+
+	req.on('error', function(error) {
+		console.log(error);
+	});
+
+	req.end();
 }
 
 setInterval(function() {

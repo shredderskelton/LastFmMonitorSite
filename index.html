@@ -21,7 +21,11 @@
 
     function refreshNowPlaying(){
     	$.getJSON("nowplaying", function(result){
-			var track = result.recenttracks.track[0];
+			var track = result.recenttracks.track;
+			if(track === 'undefined'){
+				track = result.recenttracks.track[0];
+			} 
+
 			$( "#artistName" ).text(track.artist['#text']);   
 			$( "#songName" ).text(track.name);    
 			$( "#albumName" ).text(track.album['#text']);    

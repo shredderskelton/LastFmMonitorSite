@@ -10,9 +10,7 @@
     "logfmt": "^1.2.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "start": "node server.js"
-  },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/shredderskelton/LastFmMonitorSite.git"

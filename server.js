@@ -28,9 +28,9 @@ app.get('/index.html', function(req, res) {
 function requestNowPlayingFromLastFm() {
 	var options = {
 		path: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + userNameToFollow + '&api_key=' + api_key + '&limit=1&format=json',
-		headers: {
-			Host: "ws.audioscrobbler.com"
-		}
+		// headers: {
+		// 	Host: "ws.audioscrobbler.com"
+		// }
 	};
 
 	// options.host = "wp.sixt.de";

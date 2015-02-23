@@ -22,7 +22,8 @@
     function refreshNowPlaying(){
     	$.getJSON("nowplaying", function(result){
 			var track = result.recenttracks.track;
-			if(track === 'undefined'){
+			var artist = track.artist;
+			if(typeof artist === 'undefined'){
 				track = result.recenttracks.track[0];
 			} 
 

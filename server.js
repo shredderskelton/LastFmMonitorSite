@@ -33,12 +33,9 @@ function requestNowPlayingFromLastFm() {
 		}
 	};
 
-	if (process.env.NODE_ENV === 'production') {
+	// options.host = "wp.sixt.de";
+	// options.port = 8080;
 
-	} else {
-		options.host = "wp.sixt.de";
-		options.port = 8080;
-	}
 	callback = function(response) {
 		if (response.statusCode != 200) {
 			console.log("Error from server " + response.statusCode);

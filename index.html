@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <style>
+    p{
+		font-family: "Arial";
+    	font-size: 17px;
+    	padding-left: 10px;
+    }
+
+    p.heading {
+    	font-size:14px;
+    	color: DarkGray;
+    	padding-left: 0px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+
+    function refreshNowPlaying(){
+    	$.getJSON("nowplaying", function(result){
+			var track = result.recenttracks.track[0];
+			$( "#artistName" ).text(track.artist['#text']);   
+			$( "#songName" ).text(track.name);    
+			$( "#albumName" ).text(track.album['#text']);    
+			
+			var trackImageUrl = 'http://www.ifans.com/forums/attachments/noartplaceholder-png.38049/';
+			
+			$.each(track.image, function(index, image){
+				var trackImage = image['#text'];
+				if((!trackImage) || (trackImage.length == 0)){
+
+				}else{
+					trackImageUrl = trackImage;
+				}
+			});
+
+			$( "#albumCover" ).attr('src', trackImageUrl);   
+			$( "#albumCover" ).click(function(){
+				window.open(track.url);
+			});   
+
+    	});
+    }
+
+    $( document ).ready(function() {
+		refreshNowPlaying();
+	});
+	
+	setInterval(function(){ refreshNowPlaying(); }, 6000);
+    
+    </script>
+</head>
+<body>
+<table align="center" style="width:50%">
+  <tr align="left">
+    <th>
+	   <img id="albumCover" src="http://www.ifans.com/forums/attachments/noartplaceholder-png.38049/">
+	</th> 
+	 <td align="left">
+		 <p class="heading">Track: </p>
+		 <p id="songName" />
+		 <p class="heading">Artist: </p> 
+	  	 <p id="artistName" /> 
+	  	 <p class="heading">Album: </p>
+	     <p id="albumName" />
+	 </td>
+  </tr>  
+</table>
+ 
+</body>
+</html>

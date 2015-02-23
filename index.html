@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Demo</title>
+    <title>Now playing</title>
     <style>
     p{
 		font-family: "Arial";
@@ -19,6 +19,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
 
+    var trackUrl;
+
     function refreshNowPlaying(){
     	$.getJSON("nowplaying", function(result){
 			var track = result.recenttracks.track;
@@ -30,7 +32,8 @@
 			$( "#artistName" ).text(track.artist['#text']);   
 			$( "#songName" ).text(track.name);    
 			$( "#albumName" ).text(track.album['#text']);    
-			
+			trackUrl = track.url;
+
 			var trackImageUrl = 'http://www.ifans.com/forums/attachments/noartplaceholder-png.38049/';
 			
 			$.each(track.image, function(index, image){
@@ -44,7 +47,7 @@
 
 			$( "#albumCover" ).attr('src', trackImageUrl);   
 			$( "#albumCover" ).click(function(){
-				window.open(track.url);
+				window.open(trackUrl);
 			});   
 
     	});

@@ -1,0 +1,26 @@
+{
+  "name": "LastFmMonitorSite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.0",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "logfmt": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shredderskelton/LastFmMonitorSite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shredderskelton/LastFmMonitorSite/issues"
+  },
+  "homepage": "https://github.com/shredderskelton/LastFmMonitorSite"
+}

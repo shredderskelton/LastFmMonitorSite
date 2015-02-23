@@ -2,18 +2,15 @@
   "name": "LastFmMonitorSite",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "dependencies": {
     "express": "^4.12.0",
     "logfmt": "^1.2.0"
   },
-  "devDependencies": {},
-
   "repository": {
     "type": "git",
     "url": "https://github.com/shredderskelton/LastFmMonitorSite.git"
   },
-  "author": "",
+  "author": "Nick Skelton",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shredderskelton/LastFmMonitorSite/issues"

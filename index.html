@@ -19,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
 
-    var trackUrl;
+    var trackUrl; 
 
     function refreshNowPlaying(){
     	$.getJSON("nowplaying", function(result){
@@ -29,11 +29,17 @@
 				track = result.recenttracks.track[0];
 			} 
 
-			$( "#artistName" ).text(track.artist['#text']);   
-			$( "#songName" ).text(track.name);    
-			$( "#albumName" ).text(track.album['#text']);    
-			trackUrl = track.url;
+			var artistText = track.artist['#text'];
+			var albumText = track.album['#text'];
+			var trackText = track.name;
 
+			document.title = trackText + ' by ' + artistText;
+
+			$( "#artistName" ).text(artistText);   
+			$( "#songName" ).text(trackText);    
+			$( "#albumName" ).text(albumText);
+
+			trackUrl = track.url;
 			var trackImageUrl = 'http://www.ifans.com/forums/attachments/noartplaceholder-png.38049/';
 			
 			$.each(track.image, function(index, image){

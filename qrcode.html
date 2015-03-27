@@ -27,17 +27,15 @@
 		if(isAndroid) {
 			//intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=23423;end
 			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=" + reservationId + ";end";
-			$( "#openapp" ).style.display = 'none';
+			// $( "#openapp" ).style.display = 'none';
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
 		} if(isIphone){
 		    var timeout;
 		    function open_appstore() {
 		        window.location='http://itunes.com/';
 		    }
-
-		    function try_to_open_app() {
-		        timeout = setTimeout('open_appstore()', 300);
-		    }
+		    window.location = "isixt://token/" + reservationId + ";end";
+		    timeout = setTimeout('open_appstore()', 300);
 		}else{
 			$( "#heading" ).text('Not an Mobile browser');
 		}
@@ -47,6 +45,6 @@
 </head>
 <body>
  <p id="heading">Test</p>
- <a id="openapp" onClick="javascript:try_to_open_app();" href="isixt://test.com">Sixt App</a>		
+ <!-- <a id="openapp" onClick="javascript:try_to_open_app();" href="isixt://test.com">Sixt App</a>		 -->
 </body>
 </html>

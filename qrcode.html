@@ -33,14 +33,14 @@
 			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=" + reservationId + ";end";
 			// $( "#openapp" ).style.display = 'none';
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
-		} if(isIphone){
+		} if(isIPhone){
 		    var timeout;
 
 		    window.location = "isixt://token.com";
 		    timeout = setTimeout('open_appstore()', 300);
 		    $( "#heading" ).text('Ios detected');
 		}else{
-			$( "#heading" ).text('Not an Mobile browser');
+			$( "#heading" ).text('Not an Mobile browser: ' + ua);
 		}
 
 	});

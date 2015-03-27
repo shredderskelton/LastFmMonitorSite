@@ -34,8 +34,9 @@
 		    function open_appstore() {
 		        window.location='http://itunes.com/';
 		    }
-		    window.location = "isixt://token/" + reservationId + ";end";
+		    window.location = "isixt://token.com";
 		    timeout = setTimeout('open_appstore()', 300);
+		    $( "#heading" ).text('Ios detected');
 		}else{
 			$( "#heading" ).text('Not an Mobile browser');
 		}

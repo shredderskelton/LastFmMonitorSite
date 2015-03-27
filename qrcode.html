@@ -27,7 +27,7 @@
 
 		var ua = navigator.userAgent.toLowerCase();
 		var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
-		var isIPhone = ua.indexOf("iPhone") > -1; //&& ua.indexOf("mobile");
+		var isIPhone = ua.indexOf("iphone") > -1; //&& ua.indexOf("mobile");
 		if(isAndroid) {
 			//intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=23423;end
 			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=" + reservationId + ";end";

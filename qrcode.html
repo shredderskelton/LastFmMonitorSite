@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <title>Now playing</title>
+    
+    <style>
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+
+    $( document ).ready(function() {
+	    function getParameterByName(name) {
+	    	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+
+		var reservationId = getParameterByName('reservationid');
+
+		var ua = navigator.userAgent.toLowerCase();
+		var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+		if(isAndroid) {
+			//intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=23423;end
+			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=" + reservationId + ";end";
+			$( "#heading" ).text('Starting Sixt App:'+reservationId);
+		}else{
+			$( "#heading" ).text('Not an Android browser');
+		}
+
+
+	});
+    </script>
+</head>
+<body>
+ <p id="heading">Test</p>
+		
+</body>
+</html>

@@ -10,6 +10,10 @@
     
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
+		    
+    function open_appstore() {
+        window.location='http://itunes.com/';
+    }
 
     $( document ).ready(function() {
 	    function getParameterByName(name) {
@@ -31,9 +35,7 @@
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
 		} if(isIphone){
 		    var timeout;
-		    function open_appstore() {
-		        window.location='http://itunes.com/';
-		    }
+
 		    window.location = "isixt://token.com";
 		    timeout = setTimeout('open_appstore()', 300);
 		    $( "#heading" ).text('Ios detected');
@@ -46,6 +48,6 @@
 </head>
 <body>
  <p id="heading">Test</p>
- <!-- <a id="openapp" onClick="javascript:try_to_open_app();" href="isixt://test.com">Sixt App</a>		 -->
+ <a id="openapp" onClick="javascript:try_to_open_app();" href="isixt://test.com">Sixt App</a>
 </body>
 </html>

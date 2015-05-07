@@ -35,7 +35,7 @@
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
 		} if(isIPhone){
 		    var timeout;
-		    window.location = "isixt://token.com?reservationNumber="+reservationNumber+"&securityCode="+securityCode;
+		    window.location = "isixt://loadreservation?reservationNumber="+reservationNumber+"&securityCode="+securityCode;
 		    timeout = setTimeout('open_appstore()', 300);
 		    $( "#heading" ).text('Ios detected');
 		}else{

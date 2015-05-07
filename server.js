@@ -33,6 +33,14 @@ app.get('/qrcode.html', function(req, res) {
 	});
 });
 
+app.get('/test.html', function(req, res) {
+	console.log("request");
+	fs.readFile("test.html", function(err, text) {
+		res.setHeader("Content-Type", "text/html");
+		res.end(text);
+	});
+});
+
 function requestNowPlayingFromLastFm() {
 	var pathUri = '/2.0/?method=user.getrecenttracks&user=' + userNameToFollow + '&api_key=' + api_key + '&limit=1&format=json';
 	//console.log(pathUri);

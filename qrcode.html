@@ -14,15 +14,14 @@
     function open_appstore() {
         window.location='https://itunes.apple.com/de/app/sixt-rent-a-car/id295079411?l=en&mt=8';
     }
+ 	function getParameterByName(name) {
+	   	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	   	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	    results = regex.exec(location.search);
+	   	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 
     $( document ).ready(function() {
-	    function getParameterByName(name) {
-	    	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-	    	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-	        results = regex.exec(location.search);
-	    	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-
 		var reservationNumber = getParameterByName('reservationNumber');
 		var securityCode = getParameterByName('securityCode');
 
@@ -36,8 +35,7 @@
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
 		} if(isIPhone){
 		    var timeout;
-
-		    window.location = "isixt://token.com";
+		    window.location = "isixt://token.com?reservationNumber="+reservationNumber+"&securityCode="+securityCode;
 		    timeout = setTimeout('open_appstore()', 300);
 		    $( "#heading" ).text('Ios detected');
 		}else{

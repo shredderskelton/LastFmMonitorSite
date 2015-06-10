@@ -42,7 +42,7 @@ app.get('/test.html', function(req, res) {
 });
 app.get('/qrcodedebug.html', function(req, res) {
 	console.log("request");
-	fs.readFile("qrcodeprod.html", function(err, text) {
+	fs.readFile("qrcodedebug.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");
 		res.end(text);
 	});
@@ -50,14 +50,14 @@ app.get('/qrcodedebug.html', function(req, res) {
 
 app.get('/testdebug.html', function(req, res) {
 	console.log("request");
-	fs.readFile("testprod.html", function(err, text) {
+	fs.readFile("testdebug.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");
 		res.end(text);
 	});
 });
 app.get('/qrcodebeta.html', function(req, res) {
 	console.log("request");
-	fs.readFile("qrcodeprod.html", function(err, text) {
+	fs.readFile("qrcodebeta.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");
 		res.end(text);
 	});
@@ -65,7 +65,7 @@ app.get('/qrcodebeta.html', function(req, res) {
 
 app.get('/testbeta.html', function(req, res) {
 	console.log("request");
-	fs.readFile("testprod.html", function(err, text) {
+	fs.readFile("testbeta.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");
 		res.end(text);
 	});

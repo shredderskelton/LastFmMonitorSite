@@ -40,7 +40,7 @@ app.get('/test.html', function(req, res) {
 		res.end(text);
 	});
 });
-app.get('/qrcodeprod.html', function(req, res) {
+app.get('/qrcodedebug.html', function(req, res) {
 	console.log("request");
 	fs.readFile("qrcodeprod.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");
@@ -48,7 +48,22 @@ app.get('/qrcodeprod.html', function(req, res) {
 	});
 });
 
-app.get('/testprod.html', function(req, res) {
+app.get('/testdebug.html', function(req, res) {
+	console.log("request");
+	fs.readFile("testprod.html", function(err, text) {
+		res.setHeader("Content-Type", "text/html");
+		res.end(text);
+	});
+});
+app.get('/qrcodebeta.html', function(req, res) {
+	console.log("request");
+	fs.readFile("qrcodeprod.html", function(err, text) {
+		res.setHeader("Content-Type", "text/html");
+		res.end(text);
+	});
+});
+
+app.get('/testbeta.html', function(req, res) {
 	console.log("request");
 	fs.readFile("testprod.html", function(err, text) {
 		res.setHeader("Content-Type", "text/html");

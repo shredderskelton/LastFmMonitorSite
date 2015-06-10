@@ -30,7 +30,7 @@
 		var isIPhone = ua.indexOf("iphone") > -1; //&& ua.indexOf("mobile");
 		if(isAndroid) {
 			//intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.username=nickskelton;S.password=*68HdS8787;S.reservation=23423;end
-			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation;S.reservationNumber="+reservationNumber+";S.securityCode="+securityCode+";end";
+			window.location = "intent://#Intent;scheme=sixt;package=com.sixt.reservation.beta;S.reservationNumber="+reservationNumber+";S.securityCode="+securityCode+";end";
 			// $( "#openapp" ).style.display = 'none';
 			$( "#heading" ).text('Starting Sixt App:'+reservationId);
 		} if(isIPhone){
